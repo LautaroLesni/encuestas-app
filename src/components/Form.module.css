@@ -20,5 +20,5 @@
     border: 1.5px solid rgb(51, 139, 239);
     border-radius: 20px;
     width: 70%;
-    height: 70%;
+    height: fit-content;
 }
