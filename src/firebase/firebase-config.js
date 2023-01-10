@@ -1,5 +1,4 @@
 // Import the functions you need from the SDKs you need
-import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -12,6 +11,7 @@ import {
   where,
   setDoc,
   deleteDoc,
+  onSnapshot
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import {
@@ -30,12 +30,31 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
 export const db = getFirestore();
 export const storage = getStorage();
-const analytics = getAnalytics(app);
+
+export const saveEncuesta = ({full_name, email, birth_date, country_of_origin, terms_and_conditions}) =>{
+   addDoc(collection(db, 'encuesta'), {full_name, email, birth_date, country_of_origin, terms_and_conditions})
+}
+
+export const getEncuesta = async(callback) =>{
+  const encuestas = []
+  const querySnapshot = await getDocs(collection(db, 'encuesta'))
+
+  querySnapshot?.forEach(doc =>{
+    const encuesta = {...doc.data()}
+    encuestas.push(encuesta)
+  })
+  return encuestas
+
+}
+
+export const onGetEncuesta = async(callback) =>{
+
+ onSnapshot(collection(db,'encuesta'), callback)
+
+}
