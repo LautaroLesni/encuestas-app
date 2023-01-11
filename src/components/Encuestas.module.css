@@ -1,0 +1,64 @@
+.outterDIV{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height:100vh;
+    background-color: rgb(152, 152, 152);
+}
+.databaseDIV{
+    background-color: rgb(71, 71, 71);
+    width: 80%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+}
+.tagsDIV{
+    background-color: rgb(34, 79, 135);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+.tagsDIV ul{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: rgb(108, 98, 86);
+}
+.tagsDIV li{
+    color: white;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    line-break:loose;
+    width: 10%;
+    margin: 0px 50px;
+    background-color: aqua;
+}
+.encuestasDIV{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(172, 225, 255);
+    width: 100%;
+}
+.encuestasDIV ul{
+display: flex;
+justify-content: space-around;
+width: 100%;
+
+}
+.encuestasDIV li{
+    background-color: antiquewhite;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 20%;
+    margin: 0px 50px;
+    text-align: left;
+    position: relative;
+    right: 2.5%;
+}
