@@ -17,10 +17,11 @@ import s from './Form.module.css'
 import { Validate } from "../functions";
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 
 const inputstyle = { marginTop: '15px', width: '48%' }
-const success = {backgroundColor:'#B1F6A9',color:'#206518',width:'96%', padding:'10px'}
+const success = { backgroundColor: '#B1F6A9', color: '#206518', width: '96%', padding: '10px' }
 
 
 const Form = () => {
@@ -44,7 +45,7 @@ const Form = () => {
     useEffect(() => {
 
         setErrors(Validate(input))
-        
+
     }, [input, isCreated])
 
     const handleChange = (e) => {
@@ -83,18 +84,26 @@ const Form = () => {
             setIsCreated(true)
         }
     }
-    
+
     const handleFocus = (e) => {
         setFocused({ ...focused, [e.target.name]: true })
     }
 
     return (
         <div className={s.outterDIV}>
-            <div className={s.innerDIV}>
+            <motion.div className={s.innerDIV}
+                initial={{ opacity: 0, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0, duration: 0.8 }}
+                viewport={{ once: true }}>
                 <div className={s.formDIV}>
                     <h2>Encuesta</h2>
-                        {isCreated && <Typography style={success} id="modal-modal-description" sx={{ mt: 2 }}>
-                            Encuesta enviada!<br/> Para ver los resultados presiona <Link to='/resultados'>aquí</Link></Typography>}
+                    {isCreated && <motion.div
+                        initial={{ opacity: 0, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0, duration: 0.8 }}
+                        viewport={{ once: true }}><Typography style={success} id="modal-modal-description" sx={{ mt: 2 }}>
+                            Encuesta enviada!<br /> Para ver los resultados presiona <Link to='/resultados'>aquí</Link></Typography></motion.div>}
 
                     {db.items?.map(form => {
                         switch (form.type) {
@@ -145,7 +154,7 @@ const Form = () => {
                                                 onChange={(newDate) => { setInput({ ...input, birth_date: newDate ? JSON.stringify(newDate._d).split('T', 1).join().slice(1).split('-').join('/') : '' }) }}
                                                 onBlur={handleFocus}
                                             />
-                                        <FormHelperText style={{ color: '#D21515' }}>{errors.birth_date ? focused.birth_date && errors.birth_date : ''}</FormHelperText>
+                                            <FormHelperText style={{ color: '#D21515' }}>{errors.birth_date ? focused.birth_date && errors.birth_date : ''}</FormHelperText>
                                         </FormControl>
                                     </div>
                                 )
@@ -190,7 +199,7 @@ const Form = () => {
                             case 'submit':
                                 return (
                                     <div key={form.label}>
-                                        <Button style={{width:'48%', height:'40px', backgroundColor:'#578797', margin:'10px'}} onClick={handleSubmit} variant="contained" disabled={input.terms_and_conditions ? false : true}>{form.label}</Button>
+                                        <Button style={{ width: '48%', height: '40px', backgroundColor: '#578797', margin: '10px' }} onClick={handleSubmit} variant="contained" disabled={input.terms_and_conditions ? false : true}>{form.label}</Button>
                                         <h2>{form.name}</h2>
                                     </div>
                                 )
@@ -200,7 +209,7 @@ const Form = () => {
                         }
                     })}
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

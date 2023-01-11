@@ -8,14 +8,29 @@
     flex-direction: column;
 }
 .outterDIV h1{
-    margin: 20px;
+    margin: 40px;
+    font-size: 50px;
     color: white
 }
 .outterDIV h2{
     margin: 20px;
     color: white
 }
-.outterDIV h4{
+.outterDIV p{
     margin: 20px;
+    font-size: 24px;
     color: white
+}
+.divButton a{
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    background-color: #1b3944;
+    transition: 0.3s;
+}
+.divButton a:hover{
+    background-color: #456571;
+    transition: 0.3s;
 }

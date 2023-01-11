@@ -3,6 +3,8 @@ import { onGetEncuesta } from "../firebase/firebase-config";
 import { useState, useEffect } from "react";
 import s from './Encuestas.module.css'
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const Encuestas = () => {
@@ -25,13 +27,21 @@ const Encuestas = () => {
 
     return (
         <div className={s.outterDIV}>
-            {!encuestas ? <h1>Loading...</h1> : encuestas.length < 1 ? 
-            <div className={s.sinEncuestas}>
-                <h1>No se encontraron resultados de la encuesta, presiona el botón para crear una</h1>
-                <Link to='/encuesta'>Realizar encuesta</Link>
-                </div> 
+            {!encuestas ? <CircularProgress style={{color:'#7cc1da'}} size={100}/> : encuestas.length < 1 ?
+                <motion.div className={s.sinEncuestas}
+                    initial={{ opacity: 0, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0, duration: 0.8 }}
+                    viewport={{ once: true }}>
+                    <h1>No se encontraron resultados de la encuesta, presiona el botón para crear una</h1>
+                    <Link to='/encuesta'>Realizar encuesta</Link>
+                </motion.div>
                 :
-                <div className={s.tablecontainer}>
+                <motion.div className={s.tablecontainer}
+                    initial={{ opacity: 0, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    viewport={{ once: true }}>
                     <table>
                         <thead><tr>
                             <th>Nombre completo</th>
@@ -53,7 +63,7 @@ const Encuestas = () => {
                             ))}
                         </tbody>
                     </table>
-                </div>}
+                </motion.div>}
 
         </div>
     )
