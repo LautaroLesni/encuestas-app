@@ -1,64 +1,50 @@
 .outterDIV{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #4c95b0;
     width: 100%;
-    height:100vh;
-    background-color: rgb(152, 152, 152);
-}
-.databaseDIV{
-    background-color: rgb(71, 71, 71);
-    width: 80%;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid white;
-}
-.tagsDIV{
-    background-color: rgb(34, 79, 135);
-    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    height: 50px;
-}
-.tagsDIV ul{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    background-color: rgb(108, 98, 86);
-}
-.tagsDIV li{
-    color: white;
-    display: flex;
     align-items: center;
-    list-style: none;
-    line-break:loose;
-    width: 10%;
-    margin: 0px 50px;
-    background-color: aqua;
 }
-.encuestasDIV{
+.tablecontainer {
     display: flex;
     flex-direction: column;
-    background-color: rgb(172, 225, 255);
+    gap: 10px;
+    padding: 1rem;
+  }
+  
+  table {
+    border-collapse:collapse;
     width: 100%;
-}
-.encuestasDIV ul{
-display: flex;
-justify-content: space-around;
-width: 100%;
-
-}
-.encuestasDIV li{
-    background-color: antiquewhite;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    height: 40px;
-    width: 20%;
-    margin: 0px 50px;
+    
+  }
+  
+  th,
+  td {
+    border: 1px solid #ffffff;
     text-align: left;
-    position: relative;
-    right: 2.5%;
-}
+    padding: 8px;
+    font-size: 18px;
+    background-color: rgb(205, 235, 253);
+    
+  }
+  
+  th {
+    background-color: rgb(117, 201, 250);
+  }
+  
+
+  
+  form {
+    display: flex;
+    gap: 5px;
+  }
+  
+  form td:last-child {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  form * {
+    font-size: 28px;
+  }

@@ -1,6 +1,5 @@
-import { QuerySnapshot } from "firebase/firestore";
 import React from "react";
-import { getEncuesta, onGetEncuesta } from "../firebase/firebase-config";
+import { onGetEncuesta } from "../firebase/firebase-config";
 import { useState, useEffect } from "react";
 import s from './Encuestas.module.css'
 
@@ -25,29 +24,29 @@ const Encuestas = () => {
 
     return (
         <div className={s.outterDIV}>
-            <div className={s.databaseDIV}>
-                    <div className={s.tagsDIV}>
-                        <ul>
-                            <li>Nombre completo</li>
-                            <li>Email</li>
-                            <li>Fecha de nacimiento</li>
-                            <li>País</li>
-                            <li>Terminos y condiciones</li>
-                        </ul>
-                </div>
-                <div className={s.encuestasDIV}>
-                    {encuestas.length > 0 ? encuestas?.map(encuesta => (
-                            <ul key={encuesta.id}>
-                                <li>{encuesta.full_name}</li>
-                                <li>{encuesta.email}</li>
-                                <li>{encuesta.birth_date}</li>
-                                <li>{encuesta.country_of_origin}</li>
-                                <li>{encuesta.terms_and_conditions ? 'Aceptado' : 'Rechazado'}</li>
-                            </ul>
-
-                    )) : !encuestas ? <h1>Loading...</h1> : <h1>No hay encuestas cargadas en la base de datos, para poder crearlas presiona este botón</h1>}
-                </div>
-            </div>
+        <div className={s.tablecontainer}>
+            <table>
+                <thead><tr>
+                    <th>Nombre completo</th>
+                    <th>Email</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>País de origen</th>
+                    <th>Terminos y condiciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {encuestas.length > 0 ?  encuestas?.map(encuesta => (
+                <tr key={encuesta.id}>
+                    <td>{encuesta.full_name}</td>
+                    <td>{encuesta.email}</td>
+                    <td>{encuesta.birth_date.split('/').reverse().join('/')}</td>
+                    <td>{encuesta.country_of_origin}</td>
+                    <td>{encuesta.terms_and_conditions ? 'Aceptado' : 'Rechazado'}</td>
+                </tr>
+            )) : !encuestas ? <h1>Loading...</h1> : <h1>No hay encuestas cargadas en la base de datos, para poder crearlas presiona este botón</h1>}
+                </tbody>
+            </table>
+        </div>
         </div>
     )
 }
