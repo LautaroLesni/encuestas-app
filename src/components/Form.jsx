@@ -178,7 +178,7 @@ const Form = () => {
                             case 'checkbox':
                                 return (
                                     <div key={form.label}>
-                                        <h3>{form.label}</h3>
+                                        <h3 className={s.terms_and_conditions}>{form.label}</h3>
                                         <Checkbox
                                             name="terms_and_conditions"
                                             checked={input.terms_and_conditions}
@@ -190,7 +190,7 @@ const Form = () => {
                             case 'submit':
                                 return (
                                     <div key={form.label}>
-                                        <Button onClick={handleSubmit} variant="contained" disabled={input.terms_and_conditions ? false : true}>{form.label}</Button>
+                                        <Button style={{width:'48%', height:'40px', backgroundColor:'#578797', margin:'10px'}} onClick={handleSubmit} variant="contained" disabled={input.terms_and_conditions ? false : true}>{form.label}</Button>
                                         <h2>{form.name}</h2>
                                     </div>
                                 )

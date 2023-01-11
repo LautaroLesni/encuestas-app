@@ -48,3 +48,14 @@
   form * {
     font-size: 28px;
   }
+  .sinEncuestas h1{
+    color: white;
+    margin:20px
+  }
+  .sinEncuestas a{
+    background-color: rgb(5, 62, 90);
+    padding: 15px;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+  }

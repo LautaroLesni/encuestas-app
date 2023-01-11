@@ -1,0 +1,21 @@
+.outterDIV{
+    background-color: #4c95b0;
+    width: 100%;
+    height: 93.3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.outterDIV h1{
+    margin: 20px;
+    color: white
+}
+.outterDIV h2{
+    margin: 20px;
+    color: white
+}
+.outterDIV h4{
+    margin: 20px;
+    color: white
+}
