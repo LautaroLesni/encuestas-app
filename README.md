@@ -5,6 +5,5 @@ Este proyecto fue parte de una prueba tecnica, donde me pidieron que a través d
 ## Prueba la app con el deploy:
 
 <a href='https://encuestas-app.vercel.app/'>Click aquí</a>
-https://encuestas-app.vercel.app/
 
 
